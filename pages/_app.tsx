@@ -1,7 +1,32 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+//React
+import { useState, useEffect } from "react";
+//Next
+import type { AppProps } from "next/app";
+//Styles
+import { GlobalStyles } from "styles/globalStyles";
+//Components
+import Layout from "Components/Layout";
+//Auth
+import { AuthContext } from "context";
+//Hooks
+import { useAuth } from "hooks";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function AppContainer({ Component, pageProps }: AppProps) {
+  const { user, isInitialised } = useAuth();
+
+  return (
+    <>
+      <GlobalStyles />
+
+      <AuthContext.Provider value={{ user }}>
+        {isInitialised ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : null}
+      </AuthContext.Provider>
+    </>
+  );
 }
-export default MyApp
+
+export default AppContainer;
