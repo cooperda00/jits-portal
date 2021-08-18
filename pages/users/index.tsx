@@ -1,9 +1,9 @@
 //React
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 //Next
 import Head from "next/head";
 import Router from "next/router";
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 //Data
 import { getUsers } from "queries";
 //Types
@@ -13,18 +13,28 @@ import { StyledUsersPage } from "features/Users/styles";
 import { StyledPageHeading } from "styles";
 //Hooks
 import { useAuthStatus } from "hooks";
-
-interface IProps {
-  users: IUsersData;
-}
+//Components
+import UserList from "features/Users/UserList";
+import UserControls from "features/Users/UserControls";
 
 /* This pages is not public so should be SPA style */
-const UsersPage: NextPage<IProps> = ({ users }) => {
+const UsersPage: NextPage = () => {
   const { isLoggedIn } = useAuthStatus();
 
   useEffect(() => {
     if (!isLoggedIn) Router.push("/login");
   }, [isLoggedIn]);
+
+  const [users, setUsers] = useState<IUsersData | null>(null);
+
+  const fetchUsers = useCallback(async () => {
+    const fetchedUsers = await getUsers();
+    setUsers(fetchedUsers);
+  }, []);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   return (
     <>
@@ -39,29 +49,11 @@ const UsersPage: NextPage<IProps> = ({ users }) => {
 
       <StyledUsersPage>
         <StyledPageHeading>Manage Users</StyledPageHeading>
-
-        {users
-          ? users.users.map((user, i) => {
-              return (
-                <div key={i}>
-                  {user.name} : {user.email}
-                </div>
-              );
-            })
-          : null}
+        <UserControls />
+        <UserList users={users} />
       </StyledUsersPage>
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const users = await getUsers();
-
-  return {
-    props: {
-      users,
-    },
-  };
 };
 
 export default UsersPage;

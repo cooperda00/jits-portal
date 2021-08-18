@@ -6,3 +6,4 @@ export * from "./mixins";
 //Components
 export * from "./headings";
 export * from "./buttons";
+export * from "./links";

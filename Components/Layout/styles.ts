@@ -9,5 +9,6 @@ export const StyledLayout = styled.div`
     width: 100%;
     height: calc(100vh - ${headerHeight});
     background: ${colors.primary};
+    overflow-y: auto;
   }
 `;
