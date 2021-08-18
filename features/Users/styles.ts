@@ -55,3 +55,30 @@ export const StyledUserRow = styled.li`
     width: 40%;
   }
 `;
+
+export const StyledNewUserForm = styled.form`
+  ${flex("column", "flex-start", "center")};
+  width: 100%;
+  max-width: 100rem;
+  font-size: ${fontSize.m};
+  padding: ${spacing.l};
+  background: white;
+  border-radius: ${cardRadius};
+  box-shadow: ${cardShadow};
+
+  .input-group {
+    ${flex("column", "flex-start", "flex-start")};
+    margin-bottom: ${spacing.m};
+  }
+
+  .inputs {
+    ${flex("row", "flex-start", "flex-start")};
+    width: 100%;
+    margin-bottom: ${spacing.l};
+
+    > div {
+      ${flex("column", "flex-start", "center")};
+      width: 50%;
+    }
+  }
+`;

@@ -4,6 +4,11 @@ import React, { useEffect } from "react";
 import Router from "next/router";
 //Hooks
 import { useAuthStatus } from "hooks";
+//Styles
+import { StyledUsersPage } from "features/Users/styles";
+import { StyledPageHeading } from "styles";
+//Components
+import NewUserForm from "features/Users/NewUserForm";
 
 /* This pages is not public so should be SPA style */
 const NewUserPage = () => {
@@ -14,9 +19,10 @@ const NewUserPage = () => {
   }, [isLoggedIn]);
 
   return (
-    <div>
-      <h1>Add A New User</h1>
-    </div>
+    <StyledUsersPage>
+      <StyledPageHeading>Add A New User</StyledPageHeading>
+      <NewUserForm />
+    </StyledUsersPage>
   );
 };
 
