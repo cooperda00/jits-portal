@@ -1,19 +1,12 @@
-//Firebase
-import { auth } from "firebase/config";
 //Styles
-import { StyledSignInButton } from "./styles";
+import { StyledButton } from "styles";
+//Toast
+import { useSignOut } from "hooks";
 
 const SignOutButton = () => {
-  const SignOut = async () => {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.error(error.message, error.code);
-      //Show a toast to the user with the error
-    }
-  };
+  const signOut = useSignOut();
 
-  return <StyledSignInButton onClick={SignOut}>Sign Out</StyledSignInButton>;
+  return <StyledButton onClick={signOut}>Sign Out</StyledButton>;
 };
 
 export default SignOutButton;

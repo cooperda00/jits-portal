@@ -1,20 +1,14 @@
 import styled from "styled-components";
-import { spacing, flex, fontSize, headerHeight } from "styles";
+import { spacing, flex, headerHeight, StyledButton } from "styles";
 
 export const StyledLoginPage = styled.main`
   ${flex("column", "center", "center")};
   height: calc(100vh - ${headerHeight});
 `;
 
-export const StyledSignInButton = styled.button`
-  ${flex("row", "center", "center")};
-  height: 4rem;
-  padding: ${spacing.s} ${spacing.m};
-  font-size: ${fontSize.m};
-  cursor: pointer;
-
+export const StyledSignInButton = styled(StyledButton)`
   img {
-    height: 100%;
+    height: 4rem;
     padding-right: ${spacing.m};
   }
 `;

@@ -1,11 +1,10 @@
-//React
-import { useState, useEffect } from "react";
 //Next
 import type { AppProps } from "next/app";
 //Styles
 import { GlobalStyles } from "styles/globalStyles";
 //Components
 import Layout from "Components/Layout";
+import Toaster from "Components/Toaster/Toaster";
 //Auth
 import { AuthContext } from "context";
 //Hooks
@@ -25,6 +24,8 @@ function AppContainer({ Component, pageProps }: AppProps) {
           </Layout>
         ) : null}
       </AuthContext.Provider>
+
+      <Toaster />
     </>
   );
 }

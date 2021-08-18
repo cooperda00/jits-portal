@@ -7,8 +7,6 @@ export const useAuth = () => {
   const [user, setUser] = useState<firebase.User | null>(null);
   const [isInitialised, setIsInitialised] = useState(false);
 
-  //INIT GITHUB AND MAKE AN INITIAL COMMIT -> trunk based dev until minimal project is finished
-
   //Minimal project =
   //can login, view a list of users, go to their profile, edit their own details (usename), logout
   //Then go on to refactor and test until production ready

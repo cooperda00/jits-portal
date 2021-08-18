@@ -1,17 +1,10 @@
-//Firebase
-import { auth, googleAuthProvider } from "firebase/config";
 //Styles
+import { useSignIn } from "hooks";
+//Hooks
 import { StyledSignInButton } from "./styles";
 
 const SignInWithGoogleButton = () => {
-  const signInWithGoogle = async () => {
-    try {
-      await auth.signInWithPopup(googleAuthProvider);
-    } catch (error) {
-      console.error(error.message, error.code);
-      //Show a toast to the user with the error
-    }
-  };
+  const { signInWithGoogle } = useSignIn();
 
   return (
     <StyledSignInButton onClick={signInWithGoogle}>

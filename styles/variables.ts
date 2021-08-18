@@ -1,22 +1,25 @@
 //Colors
 export const colors = {
-  //Brand Green/Teal
-  primary: "#1ceaa0",
-  primaryL: "#44eeb0",
-  primaryD: "#13cd89",
-  primaryDD: "#11b97b",
-  //Orange
-  secondary: "#ffd02b",
-  secondaryL: "#ffdc5c",
-  secondaryD: "#f5c000",
-  //Blue
-  tertiary: "#2f80ed",
-  tertiaryL: "#4191fa",
-  tertiaryD: "#236fd3",
-  //Warning Levels
-  safe: "#43bc7a",
-  moderate: "#FFD02B",
-  major: "#FF0000",
+  //Theme
+  primary: "#fefae0",
+  primaryD: "#faedcd",
+  primaryDD: "#d4a373",
+
+  secondary: "#ccd5ae",
+  secondaryL: "#e9edc9",
+
+  //Notifications
+  error: "#f44336",
+  errorL: "#e57373",
+  errorD: "#d32f2f",
+
+  warning: "#ff9800",
+  warningL: "#ffb74d",
+  warningD: "#f57c00",
+
+  success: "#4caf50",
+  successL: "#81c784",
+  successD: "#388e3c",
 };
 
 export const grays = {
