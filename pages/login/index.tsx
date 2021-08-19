@@ -10,6 +10,7 @@ import SignInWithGoogleButton from "features/Auth/SignInWithGoogleButton";
 import { useAuthStatus } from "hooks";
 //Styles
 import { StyledLoginPage } from "features/Auth/styles";
+import SignInForm from "features/Auth/SignInForm";
 
 /* This pages is public but doesn't rely on data so should be statically generated */
 const Login: NextPage = () => {
@@ -32,6 +33,7 @@ const Login: NextPage = () => {
 
       <StyledLoginPage>
         <SignInWithGoogleButton />
+        <SignInForm />
       </StyledLoginPage>
     </>
   );
