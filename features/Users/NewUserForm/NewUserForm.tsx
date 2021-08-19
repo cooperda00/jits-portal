@@ -1,30 +1,13 @@
 //React
-import React, { useState } from "react";
+import React from "react";
 import { StyledButton } from "styles";
 //Styles
-import { StyledNewUserForm } from "./styles";
+import { StyledNewUserForm } from "../styles";
+//Hooks
+import { useAddNewUser } from "./useAddNewUser";
 
 const NewUserForm = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    address1: "",
-    address2: "",
-    city: "",
-    county: "",
-    postcode: "",
-  });
-
-  const handleUpdateForm = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const key = e.target.name;
-    const value = e.target.value;
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(form);
-  };
+  const { form, error, handleUpdateForm, handleSubmit } = useAddNewUser();
 
   return (
     <StyledNewUserForm onSubmit={handleSubmit}>
@@ -37,7 +20,11 @@ const NewUserForm = () => {
               name="name"
               id="name"
               onChange={handleUpdateForm}
+              value={form.name}
             />
+            <p className="error">
+              {error.key === "name" ? error.message : null}
+            </p>
           </div>
 
           <div className="input-group">
@@ -47,7 +34,39 @@ const NewUserForm = () => {
               name="email"
               id="email"
               onChange={handleUpdateForm}
+              value={form.email}
             />
+            <p className="error">
+              {error.key === "email" ? error.message : null}
+            </p>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={handleUpdateForm}
+              value={form.password}
+            />
+            <p className="error">
+              {error.key === "password" ? error.message : null}
+            </p>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="passwordConfirm">Confirm Password</label>
+            <input
+              type="password"
+              name="passwordConfirm"
+              id="passwordConfirm"
+              onChange={handleUpdateForm}
+              value={form.passwordConfirm}
+            />
+            <p className="error">
+              {error.key === "passwordConfirm" ? error.message : null}
+            </p>
           </div>
         </div>
 
@@ -59,7 +78,11 @@ const NewUserForm = () => {
               name="address1"
               id="address1"
               onChange={handleUpdateForm}
+              value={form.address1}
             />
+            <p className="error">
+              {error.key === "address1" ? error.message : null}
+            </p>
           </div>
 
           <div className="input-group">
@@ -69,7 +92,11 @@ const NewUserForm = () => {
               name="address2"
               id="address2"
               onChange={handleUpdateForm}
+              value={form.address2}
             />
+            <p className="error">
+              {error.key === "address2" ? error.message : null}
+            </p>
           </div>
 
           <div className="input-group">
@@ -79,7 +106,11 @@ const NewUserForm = () => {
               name="city"
               id="city"
               onChange={handleUpdateForm}
+              value={form.city}
             />
+            <p className="error">
+              {error.key === "city" ? error.message : null}
+            </p>
           </div>
 
           <div className="input-group">
@@ -89,7 +120,11 @@ const NewUserForm = () => {
               name="county"
               id="county"
               onChange={handleUpdateForm}
+              value={form.county}
             />
+            <p className="error">
+              {error.key === "county" ? error.message : null}
+            </p>
           </div>
 
           <div className="input-group">
@@ -99,7 +134,11 @@ const NewUserForm = () => {
               name="postcode"
               id="postcode"
               onChange={handleUpdateForm}
+              value={form.postcode}
             />
+            <p className="error">
+              {error.key === "postcode" ? error.message : null}
+            </p>
           </div>
         </div>
       </div>

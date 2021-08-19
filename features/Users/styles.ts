@@ -6,6 +6,8 @@ import {
   fontSize,
   cardRadius,
   cardShadow,
+  colors,
+  grays,
 } from "styles";
 
 export const StyledUsersPage = styled.main`
@@ -69,6 +71,21 @@ export const StyledNewUserForm = styled.form`
   .input-group {
     ${flex("column", "flex-start", "flex-start")};
     margin-bottom: ${spacing.m};
+    width: 80%;
+
+    > .error {
+      height: ${fontSize.s};
+      font-size: ${fontSize.s};
+      color: ${colors.errorD};
+      width: 100%;
+    }
+
+    > input {
+      width: 100%;
+      padding: ${spacing.m};
+      border: 0.1rem solid ${grays.light};
+      border-bottom: 0.2rem solid ${colors.secondary};
+    }
   }
 
   .inputs {

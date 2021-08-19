@@ -8,7 +8,7 @@ import { useAuthStatus } from "hooks";
 import { StyledUsersPage } from "features/Users/styles";
 import { StyledPageHeading } from "styles";
 //Components
-import NewUserForm from "features/Users/NewUserForm";
+import NewUserForm from "features/Users/NewUserForm/NewUserForm";
 
 /* This pages is not public so should be SPA style */
 const NewUserPage = () => {
