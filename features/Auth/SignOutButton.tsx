@@ -1,7 +1,7 @@
 //Styles
 import { StyledButton } from "styles";
 //Toast
-import { useSignOut } from "hooks";
+import { useSignOut } from "./useSignOut";
 
 const SignOutButton = () => {
   const signOut = useSignOut();

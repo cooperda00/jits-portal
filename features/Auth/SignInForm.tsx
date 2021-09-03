@@ -1,48 +1,43 @@
 //React
-import React, { useState } from "react";
-//Firebase
-import { auth } from "firebase/config";
+import React, { FC } from "react";
+//Styles
+import { StyledInputGroup } from "styles/inputs";
+import { StyledButton } from "styles";
+import { StyledSignInForm } from "./styles";
+//Hooks
+import { useSignIn } from "./useSignIn";
 
-const SignInForm = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    auth.signInWithEmailAndPassword(form.email, form.password);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const key = e.target.name;
-    const value = e.target.value;
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
+const SignInForm: FC = () => {
+  const { email, password, error, handleChange, handleSubmit } = useSignIn();
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-group">
+    <StyledSignInForm onSubmit={handleSubmit}>
+      <StyledInputGroup>
         <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
           id="email"
-          value={form.email}
+          value={email}
           onChange={handleChange}
         />
-      </div>
+      </StyledInputGroup>
 
-      <div className="input-group">
+      <StyledInputGroup>
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
           id="password"
-          value={form.password}
+          value={password}
           onChange={handleChange}
         />
-      </div>
+      </StyledInputGroup>
 
-      <button type="submit">Sign In</button>
-    </form>
+      <p className="error">{error}</p>
+
+      <StyledButton type="submit">Sign In</StyledButton>
+    </StyledSignInForm>
   );
 };
 

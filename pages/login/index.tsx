@@ -5,12 +5,11 @@ import Head from "next/head";
 import Router from "next/router";
 import { NextPage } from "next";
 //Components
-import SignInWithGoogleButton from "features/Auth/SignInWithGoogleButton";
+import SignInForm from "features/Auth/SignInForm";
 //Hooks
 import { useAuthStatus } from "hooks";
 //Styles
 import { StyledLoginPage } from "features/Auth/styles";
-import SignInForm from "features/Auth/SignInForm";
 
 /* This pages is public but doesn't rely on data so should be statically generated */
 const Login: NextPage = () => {
@@ -32,7 +31,6 @@ const Login: NextPage = () => {
       </Head>
 
       <StyledLoginPage>
-        <SignInWithGoogleButton />
         <SignInForm />
       </StyledLoginPage>
     </>

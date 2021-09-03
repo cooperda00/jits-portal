@@ -7,8 +7,8 @@ export const useSignOut = () => {
   const signOut = async () => {
     try {
       await auth.signOut();
-    } catch (error) {
-      console.error(error.message, error.code);
+    } catch (error: any) {
+      console.error(error);
       toast.error(error.message);
     }
   };
